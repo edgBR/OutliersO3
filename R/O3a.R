@@ -33,7 +33,7 @@ DetectDeviantCells <- function(...) {
     xloop <- function(k) {
       utils::combn(names(ouF), k, FUN = function(vars) {
         outV = robustX::mvBACON(ouF[ , vars],
-        alpha = tol, verbose = FALSE, allowSingular = TRUE,  init.sel = "dUniMedian")
+        alpha = tol, verbose = FALSE, allowSingular = TRUE,  init.sel = "random")
         list(variables = noquote(vars),
         outlierIndices = as.vector(which(outV$subset == FALSE)),
         outDist = outV$dis)
